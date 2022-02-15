@@ -31,7 +31,11 @@ var init = function (window) {
             circles.push(circle); // pushes that single circle in the array circles
         }
 
-        // TODO 3 / 8 : Call the drawCircle() function 
+        // TODO 3 / 8 : Call the drawCircle() function
+        
+        for(var i = 0;i <= 100; i++){
+            drawCircle();
+        }
         drawCircle(); // drew 5 circles
         drawCircle();
         drawCircle();
@@ -65,10 +69,11 @@ var init = function (window) {
             game.checkCirclePosition(circles [4]);
 
             // TODO 9 : Iterate over the array
-           
-            
+            for(var k = 0; k <= circles.length -1; k++) {
+                physikz.updatePosition( circles [k]);
+                game.checkCirclePosition(circles [k]);
+            }
         }
-    
         /* 
         This Function should check the position of a circle that is passed to the 
         Function. If that circle drifts off the screen, this Function should move
@@ -81,7 +86,7 @@ var init = function (window) {
                 circle.x = 0;
             }
             if (circle.x < 0 ) {
-                circle.x = canvaswidth;
+                circle.x = canvas.width;
                 
             }
             if (circle.y < 0 ) {
