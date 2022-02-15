@@ -36,7 +36,7 @@ var init = function (window) {
         for(var i = 0;i <= 100; i++){
             drawCircle();
         }
-        drawCircle(); // drew 5 circles
+        drawCircle(); // set up a function to draw 5 circles
         drawCircle();
         drawCircle();
         drawCircle();
@@ -58,13 +58,13 @@ var init = function (window) {
             physikz.updatePosition( circles [1]);
             physikz.updatePosition( circles [2]);
             physikz.updatePosition( circles [3]);
-            physikz.updatePosition( circles [4]);
+            physikz.updatePosition( circles [4]); //drew circles
 
             
             // TODO 5 / 10 : Call game.checkCirclePosition() on your circles.
             game.checkCirclePosition(circles [0]);
             game.checkCirclePosition(circles [1]);
-            game.checkCirclePosition(circles [2]);
+            game.checkCirclePosition(circles [2]);// keeps circles that stray off of the screen on the screen. 
             game.checkCirclePosition(circles [3]);
             game.checkCirclePosition(circles [4]);
 
@@ -90,7 +90,7 @@ var init = function (window) {
                 
             }
             if (circle.y < 0 ) {
-                circle.y = canvas.height;
+                circle.y = canvas.height;// iterating circles in arrays that lets us pull out on each loop.
                 
             }
             if (circle.y > canvas.height) {
