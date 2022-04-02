@@ -37,7 +37,7 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,groundY,'pink');
+            var backgroundFill = draw.rect(canvasWidth, groundY, 'pink');
             background.addChild(backgroundFill);
             
             // TODO: 3 - Add a moon and starfield
@@ -67,13 +67,20 @@ var background = function (window) {
             }
             
             // TODO 4: Part 1 - Add a tree
-           tree = draw.bitmap('img/tree.png'); // reasssigns the drawn image tree to the variable tree
+           /*tree = draw.bitmap('img/tree.png'); // reasssigns the drawn image tree to the variable tree
             tree.x = 600; // assigns an X value to the tree
             tree.y = groundY - 100; //assigns an= Y vale to the tree
              tree.scaleX = 0.5; //changes the x scale of the moons
              tree.scaleY = 0.5; // changes y scale of the moon
              background.addChild(tree); // adds tree to the background
-         
+             */
+              tree = draw.bitmap('img/tree.png'); // reasssigns the drawn image tree to the variable tree
+              tree.x = 600; // assigns an X value to the tree
+              tree.y = groundY - 150; //assigns an= Y vale to the tree
+              tree.scaleX = 0.4; //changes the x scale of the moons
+              tree.scaleY = 0.2; // changes y scale of the moon
+              background.addChild(tree); // adds tree to the background
+          
             
         } // end of render function - DO NOT DELETE
         
@@ -87,12 +94,20 @@ var background = function (window) {
             var groundY = ground.y;
             
             // TODO 4: Part 2 - Move the tree!
-            tree.x = tree.x - 1; // taking the value of tree.X (x position) and decreasing by 1 pixel every time the updatefunction runs
+           /* tree.x = tree.x - 1; // taking the value of tree.X (x position) and decreasing by 1 pixel every time the updatefunction runs
 
              if(tree.x < -200) {
                 tree.x = canvasWidth;
             }
+            */
             
+            tree.x = tree.x -1;
+
+            if (tree.x < -200) {
+                tree.x = canvasWidth;
+            }
+           
+
             // TODO 5: Part 2 - Parallax
             for (var i = 0; i < buildings.length; i++) {
                 buildings[i].x = buildings[i].x - 0.5; // moves the buildings x position by .5 pixels`
@@ -118,8 +133,10 @@ var background = function (window) {
         render();
         return background;
     };
-};
 
+    
+}; // TODO: 3 - Add a moon and starfield
+ 
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 if((typeof process !== 'undefined') &&
     (typeof process.versions.node !== 'undefined')) {
